@@ -57,7 +57,7 @@ unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "Unzip backend"
 
 npm install &>>$LOG_FILE_NAME
-VALIDATE $? ""Installing dependencies
+VALIDATE $? "Installing dependencies"
 
 cp /c/devsecops/daws-82s/repos/expense-shell/backend.service /etc/systemd/system/backend.service
 
@@ -71,12 +71,12 @@ VALIDATE $? "Setting up the transactions schema and tables"
 
 systemctl daemon-reload &>>$LOG_FILE_NAME
 VALIDATE $? "Deamon Reload"
+ 
+systemctl enable backend &>>$LOG_FILE_NAME
+VALIDATE $? "Enabling backend"
 
 systemctl start backend &>>$LOG_FILE_NAME
 VALIDATE $? "Starting backend"
-
-systemctl enable backend &>>$LOG_FILE_NAME
-VALIDATE $? "Enabling backend"
 
 
 
