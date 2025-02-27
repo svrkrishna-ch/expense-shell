@@ -33,5 +33,5 @@ echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_ROOT
 
-cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service
+cp /c/devsecops/daws-82s/repos/expense-shell/backend.service /etc/systemd/system/backend.service
 VALIDATE $? "Backend Copied"
