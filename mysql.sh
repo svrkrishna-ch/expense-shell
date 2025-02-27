@@ -26,8 +26,7 @@ CHECK_ROOT(){
     then 
         echo "ERROR:: You must have sudo access to execute this script"
         exit 1
-    fi
-
+    fi 
 }
 
 echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_NAME
@@ -37,10 +36,10 @@ CHECK_ROOT
 dnf install mysql-server -y &>>$LOG_FILE_NAME
 VALIDATE $? "Installing MySQL server"
 
-systemsctl enable mysqld &>>$LOG_FILE_NAME
+systemctl enable mysqld &>>$LOG_FILE_NAME
 VALIDATE $? "Enabling MySQL server"
 
-systemsctl start mysqld &>>$LOG_FILE_NAME
+systemctl start mysqld &>>$LOG_FILE_NAME
 VALIDATE $? "Starting MySQL server"
 
 mysql_secure_installation --set-root-pass ExpenseApp@1
