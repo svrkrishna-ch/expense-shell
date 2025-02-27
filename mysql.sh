@@ -5,6 +5,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+
 LOGS_FOLDER="/var/log/expense-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1 )
 TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
@@ -18,14 +19,14 @@ VALIDATE(){
     else
         echo -e "$2 - $G SUCCESS $N"
     fi
-    
 }
 
 CHECK_ROOT(){
-    if [ $1 -ne 0 ]
+    if [ $USERID -ne 0 ]
     then 
         echo "ERROR:: You must have sudo access to execute this script"
         exit 1
+    fi
 
 }
 
